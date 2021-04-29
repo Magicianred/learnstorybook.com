@@ -5,17 +5,17 @@ description: 'Impara come deployare Storibook online'
 commit: '8652d73'
 ---
 
-Attraverso questo tutorila, abbiamo costruito componenti nell' ambiente locale della nostra macchina. Ad un certo punto, avremo bisogno di condividere il nostro lavoro per avere dei feedback dal nostro team. Procediamo quindi con il deploy di Storybook online per aiutare i nostri colleghi a rivedere l'implementazione della nostra UI.
+Attraverso questo tutorial, abbiamo costruito componenti nell' ambiente locale della nostra macchina. Ad un certo punto, avremo bisogno di condividere il nostro lavoro per avere dei feedback dal nostro team. Procediamo quindi con il deploy di Storybook online per aiutare i nostri colleghi a rivedere l'implementazione della nostra UI.
 
 ## Esportare come app statica
 
-To deploy Storybook we first need to export it as a static web app. This functionality is already built-in to Storybook and pre-configured.
+Per effettuare il deploy di Storybook per prima cosa dobbiamo esportarlo come una applicazione web statica. Questa funzionalità è già integrata in Storybook e pre-configurata.
 
-Running `yarn build-storybook` will output a static Storybook in the `storybook-static` directory, which can then be deployed to any static site hosting service.
+Eseguendo `yarn build-storybook` verrà generato uno Storybook statico nella cartella `storybook-static`, che potrà essere distribuito tramite un qualsiasi servizio di hosting per siti web statici.
 
-## Publish Storybook
+## Pubblicare Storybook
 
-This tutorial uses <a href="https://www.chromatic.com/">Chromatic</a>, a free publishing service made by the Storybook maintainers. It allows us to deploy and host our Storybook safely and securely in the cloud.
+Questo tutorial utilizza <a href="https://www.chromatic.com/">Chromatic</a>, un servizio di pubblicazione gratuito creato dai maintainers di Storybook. Ci consente di It allows us to deploy and host our Storybook safely and securely in the cloud.
 
 ### Setup a repository in GitHub
 
