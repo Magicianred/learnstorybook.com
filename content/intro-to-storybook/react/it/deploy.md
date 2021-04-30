@@ -15,37 +15,37 @@ Eseguendo `yarn build-storybook` verrà generato uno Storybook statico nella car
 
 ## Pubblicare Storybook
 
-Questo tutorial utilizza <a href="https://www.chromatic.com/">Chromatic</a>, un servizio di pubblicazione gratuito creato dai maintainers di Storybook. Ci consente di It allows us to deploy and host our Storybook safely and securely in the cloud.
+Questo tutorial utilizza <a href="https://www.chromatic.com/">Chromatic</a>, un servizio di pubblicazione gratuito creato dai maintainers di Storybook. Chromatic ci consente di effettuare il deploy ed ospitare il nostro Storybook in modo sicuro nel cloud.
 
-### Setup a repository in GitHub
+### Creazione di un repository in GitHub
 
-Before we begin, our local code needs to sync with a remote version control service. When our project was initialized in the [Get started chapter](/intro-to-storybook/react/en/get-started/), we already initialized a local repository. At this stage we already have a set of commits that we can push to a remote one.
+Prima di iniziare, il nostro codice in locale deve essere sincronizzato con un servizio di versioning remoto. Una volta che il nostro progetto è stato inizializzato nel capitolo [Per iniziare](/intro-to-storybook/react/it/get-started/), abbiamo già inizializzato un repository locale. A questo punto abbiamo già dei commit di cui possiamo eseguire il push su di un repository remoto.
 
-Go to GitHub and create a new repository for our project [here](https://github.com/new). Name the repo “taskbox”, same as our local project.
+Effettuate l'accesso a GitHub e create un nuovo repository per il progetto [qui](https://github.com/new). Date il nome “taskbox” al repository, come nel nostro progetto locale.
 
 ![GitHub setup](/intro-to-storybook/github-create-taskbox.png)
 
-In the new repo, grab the origin URL of the repo and add it to your git project with this command:
+Prendendo l'URL di origine del nostro nuovo repository remoto, aggiungetelo al vostro progetto git con questo comando:
 
 ```bash
 $ git remote add origin https://github.com/<your username>/taskbox.git
 ```
 
-Finally, push our local repo to the remote repo on GitHub with:
+Infine, eseguite il push del repository locale su quello remoto di GitHub con:
 
 ```bash
 $ git push -u origin main
 ```
 
-### Get Chromatic
+### Installazione di Chromatic
 
-Add the package as a development dependency.
+Aggiungete il pacchetto come dipendenza di sviluppo.
 
 ```bash
 yarn add -D chromatic
 ```
 
-Once the package is installed, [login to Chromatic](https://www.chromatic.com/start) with your GitHub account (Chromatic will only ask for lightweight permissions). Then we'll create a new project called name "taskbox" and sync it with the GithHub repository we've setup.
+Una volta che il pacchetto è installato, [effettuate il login a Chromatic](https://www.chromatic.com/start) con il vostro account GitHub (Chromatic richiederà solamente permessi will only ask for lightweight permissions). Then we'll create a new project called name "taskbox" and sync it with the GithHub repository we've setup.
 
 Click `Choose GitHub repo` under collaborators and select your repo.
 
