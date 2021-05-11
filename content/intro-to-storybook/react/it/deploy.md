@@ -9,7 +9,7 @@ Attraverso questo tutorial, abbiamo costruito dei componenti nell'ambiente local
 
 ## Esportare come app statica
 
-Per effettuare il deploy di Storybook per prima cosa dobbiamo esportarlo come una applicazione web statica. Questa funzionalità è già integrata in Storybook e pre-configurata.
+Per effettuare il deploy di Storybook per prima cosa dobbiamo esportarlo come un'applicazione web statica. Questa funzionalità è già integrata in Storybook e pre-configurata.
 
 Eseguendo `yarn build-storybook` verrà generato uno Storybook statico nella cartella `storybook-static`, che potrà essere distribuito tramite un qualsiasi servizio di hosting per siti web statici.
 
@@ -19,13 +19,13 @@ Questo tutorial utilizza <a href="https://www.chromatic.com/">Chromatic</a>, un 
 
 ### Creazione di un repository in GitHub
 
-Prima di iniziare, il nostro codice in locale deve essere sincronizzato con un servizio di versioning remoto. Creando il nostro progetto seguendo i passi del capitolo [Per iniziare](/intro-to-storybook/react/it/get-started/), abbiamo già inizializzato un repository locale. A questo punto abbiamo già dei commit di cui possiamo eseguire il push su di un repository remoto.
+Prima di iniziare, il nostro codice in locale deve essere sincronizzato con un servizio di versionamento remoto. Abbiamo già inizializzato il versionamento locale creando il progetto nel capitolo [Per iniziare](/intro-to-storybook/react/it/get-started/), abbiamo già inizializzato un repository locale. A questo punto abbiamo già dei commit di cui possiamo eseguire il push su di un repository remoto.
 
 Effettuate l'accesso a GitHub e create un nuovo repository per il progetto [qui](https://github.com/new). Date il nome “taskbox” al repository, come nel nostro progetto locale.
 
 ![GitHub setup](/intro-to-storybook/github-create-taskbox.png)
 
-Prendendo l'URL di origine del nostro nuovo repository remoto, aggiungetelo al vostro progetto git con questo comando:
+Nel nuovo repository, prendete l'URL di origine del repository e aggiungetelo al progetto git con questo mando:
 
 ```bash
 $ git remote add origin https://github.com/<your username>/taskbox.git

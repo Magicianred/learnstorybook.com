@@ -4,7 +4,7 @@ tocTitle: 'Testing'
 description: 'Impara a testare i componenti UI'
 ---
 
-Un tutorial Storybook non sarebbe completo senza una sezione relativa ai test. Testare i componenti è essenziale per creare UI di alta qualità. In sistemi modulari, minuscoli ritocchi possono portare a importanti regressioni. Fino a qui abbiamo incontrato tre tipi di test:
+Un tutorial Storybook non sarebbe completo senza una sezione relativa ai test. Testare i componenti è essenziale per creare UI di alta qualità. Nei sistemi modulari i piccoli ritocchi posso portare a importanti regressioni. Fin qui abbiamo incontrato tre tipi di test:
 
 - **Test manuali** affidarsi agli sviluppatori per verificare manualmente la correttezza dei componenti. They help us sanity check a component’s appearance as we build.
 - **Snapshot test** with Storyshots capture a component’s rendered markup. They help us stay abreast of markup changes that cause rendering errors and warnings.
