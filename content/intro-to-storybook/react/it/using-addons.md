@@ -5,15 +5,15 @@ description: 'Scopri come integrare ed usare il popolare Controls addon'
 commit: 'a23f4d0'
 ---
 
-Storybook ha un robusto ecosistema di [addons](https://storybook.js.org/docs/react/configure/storybook-addons) che puoi usare per migliorare l'esperienza di sviluppo per tutti nel tuo team. Guardati tutti [qui](https://storybook.js.org/addons),
+Storybook ha un robusto ecosistema di [addons](https://storybook.js.org/docs/react/configure/storybook-addons) che puoi usare per migliorare l'esperienza di sviluppo per tutti nel tuo team. Vedili tutti [qui](https://storybook.js.org/addons),
 
 Se hai già seguito questo tutorial avrai già incontrato diversi addon e inizializzato uno di questi nel capitolo [Testing](/intro-to-storybook/react/it/test/).
 
 Ci sono addon per ogni possibile caso d'uso. Ci vorrebbe un'eternità per scrivere di tutti loro. Andiamo ad integrare uno dei più popolari addon: [Controls](https://storybook.js.org/docs/react/essentials/controls).
 
-## Co cos'è Controls?
+## Che cos'è Controls?
 
-*Controls* permette a designer e developer allows designers and developers di esplorare facilmente il comportamento dei componenti _giocando_ con i suoi argomenti. Nessun codice è richiesto. *Controls* crea un pannello aggiuntivo accanto alle tue storie, in questo modo tu puoi modificare i loro argomenti in tempo reale.
+*Controls* permette a designer e developer di esplorare facilmente il comportamento dei componenti _giocando_ con i suoi argomenti. Nessun codice è richiesto. *Controls* crea un pannello aggiuntivo accanto alle tue storie, in questo modo tu puoi modificare i loro argomenti in tempo reale.
 
 Le nuove installazioni di Storybook includono *Controls* direttamente. Nessuna configurazione aggiuntiva è richiesta.
 
@@ -26,21 +26,19 @@ Le nuove installazioni di Storybook includono *Controls* direttamente. Nessuna c
 
 ## Gli Addon sbloccano nuovi flussi di lavoro di Storybook
 
-Storybook è uno splendido [component-driven development environment](https://www.componentdriven.org/). L'addon *Controls* evolve Storybook in uno strumento di documentazione intereattivo.
+Storybook è uno splendido [component-driven development environment](https://www.componentdriven.org/). L'addon *Controls* evolve Storybook in uno strumento di documentazione interattivo.
 
 ### Utilizzo di Controls per trovare casi limite
 
-Con *Controls* i QA Engineers, gli UI Engineers, o altri stakeholder possono spingere il componente al limite! Andiamo a considerare il seguente esempio, cosa succederebbe al nostro componente `Task` se aggiungessimo una stringa **MASSIVE**?
+Con *Controls* i QA Engineers, gli UI Engineers, o altri stakeholder possono spingere il componente al limite! Andiamo a considerare il seguente esempio, cosa succederebbe al nostro componente `Task` se aggiungessimo una stringa **MASSICCIA**?
 
-[TO COMPLETE]
+![Oh no! Il contenuto a destra è tagliato!](/intro-to-storybook/task-edge-case.png)
 
-![Oh no! The far right content is cut-off!](/intro-to-storybook/task-edge-case.png)
+Non va bene! Sembra che il testo vada oltre i limiti del componente Task.
 
-That's not right! It looks like the text overflows beyond the bounds of the Task component.
+Controls ci permette di verificare rapidamente diversi input per un componente. In questo caso una lunga stringa. Questo riduce il lavoro necessario per scoprire i problemi dell'interfaccia utente.
 
-Controls allowed us to quickly verify different inputs to a component. In this case a long string. This reduces the work required to discover UI problems.
-
-Now let's fix the issue with overflowing by adding a style to `Task.js`:
+Andiamo a risolvere il problema di overflow aggiungendo uno stile a `Task.js`:
 
 ```diff:title=src/components/Task.js
 <input
@@ -52,15 +50,15 @@ Now let's fix the issue with overflowing by adding a style to `Task.js`:
 />
 ```
 
-![That's better.](/intro-to-storybook/edge-case-solved-with-controls.png)
+![Così va meglio.](/intro-to-storybook/edge-case-solved-with-controls.png)
 
-Problem solved! The text is now truncated when it reaches the boundary of the Task area using a handsome ellipsis.
+Problema risolto! Il testo viene troncato quando raggiunge il bordo dell'area delle attività utilizzando dei bei puntini di sospensione.
 
-### Adding a new story to avoid regressions
+### Aggiungere una nuova storia per evitare regressioni
 
-In the future, We can manually reproduce this problem by entering the same string via Controls. But it's easier to write a story that showcases this edge case. That expands our regression test coverage and clearly outlines the limits of the component(s) for the rest of the team.
+In futuro possiamo riprodurre manualmente questo problema inserendo la stessa stringa tramite Controls. Però è più facile scrivere una storia che dimostri questo caso limite. Questo espande la copertura dei nostri test di regressione e delinea chiaramente i limiti dei componenti al resto del team.
 
-Add a new story for the long text case in `Task.stories.js`:
+Aggiungi una nuova storia per il caso del testo lungo in `Task.stories.js`:
 
 ```js:title=src/components/Task.stories.js
 const longTitleString = `This task's name is absurdly large. In fact, I think if I keep going I might end up with content overflow. What will happen? The star that represents a pinned task could have text overlapping. The text could cut-off abruptly when it reaches the star. I hope not!`;
@@ -74,7 +72,7 @@ LongTitle.args = {
 };
 ```
 
-Now we can reproduce and work on this edge case with ease.
+Ora possiamo riprodurre e lavorare su questo caso limite con facilità.
 
 <video autoPlay muted playsInline loop>
   <source
@@ -83,10 +81,10 @@ Now we can reproduce and work on this edge case with ease.
   />
 </video>
 
-If we are [visual testing](/intro-to-storybook/react/en/test/), we'll also be informed if the ellipsizing solution breaks. Obscure edge-cases are liable to be forgotten without test coverage!
+Se stiamo [testando visivamente](/intro-to-storybook/react/en/test/), verremo informati anche se la soluzione degli ellissi si rompe. I casi limiti non visibili possono essere dimenticati facilmente senza dei test di copertura!
 
-<div class="aside"><p>💡 Controls is a great way to get non-developers playing with your components and stories, and much more than we've seen here, we recommend reading the <a href="https://storybook.js.org/docs/react/essentials/controls">official documentation</a> to learn more about it. However, there are many more ways you can customize Storybook to fit your workflow with addons. In the <a href="/create-an-addon/react/en/introduction/">create an addon guide</a> we'll teach you that, by creating an addon that will help you supercharge your development workflow.</p></div>
+<div class="aside"><p>💡 Controls è un ottimo modo per far giocare i non programmatori con i tuoi componenti e le storie, molto di più di quanto abbiamo visto qui, raccomandiamo di leggere la <a href="https://storybook.js.org/docs/react/essentials/controls">documentazione ufficiale</a> per saperne di più. Tuttavia ci sono molti altri modi per personalizzare Storybook e adattarlo al tuo flusso di lavoro con gli addon. Nella <a href="/create-an-addon/react/it/introduction/">guida per creare gli addon</a> te lo insegniamo, creando un addon che ti aiuterà a potenziare il tuo flusso di sviluppo.</p></div>
 
-### Merge Changes
+### Mergia le modifiche
 
-Don't forget to merge your changes with git!
+Non dimenticarti di mergiare le tue modifiche con git!
