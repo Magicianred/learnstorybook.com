@@ -25,7 +25,7 @@ Effettuate l'accesso a GitHub e create un nuovo repository per il progetto [qui]
 
 ![GitHub setup](/intro-to-storybook/github-create-taskbox.png)
 
-Nel nuovo repository, prendete l'URL di origine del repository e aggiungetelo al progetto git con questo mando:
+Nel nuovo repository, prendete l'URL di origine del repository e aggiungetelo al progetto git con questo comando:
 
 ```bash
 $ git remote add origin https://github.com/<your username>/taskbox.git
