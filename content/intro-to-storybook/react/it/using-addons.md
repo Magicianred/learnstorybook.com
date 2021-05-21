@@ -9,13 +9,13 @@ Storybook ha un robusto ecosistema di [addons](https://storybook.js.org/docs/rea
 
 Se hai già seguito questo tutorial avrai già incontrato diversi addon e inizializzato uno di questi nel capitolo [Testing](/intro-to-storybook/react/it/test/).
 
-Ci sono addon per ogni possibile caso d'uso. Ci vorrebbe un'eternità per scrivere di tutti loro. Andiamo ad integrare uno dei più popolari addon: [Controls](https://storybook.js.org/docs/react/essentials/controls).
+Ci sono addon per ogni possibile caso d'uso. Ci vorrebbe un'eternità per descriverli tutti. Andiamo ad integrare uno dei più popolari addon: [Controls](https://storybook.js.org/docs/react/essentials/controls).
 
 ## Che cos'è Controls?
 
 *Controls* permette a designer e developer di esplorare facilmente il comportamento dei componenti _giocando_ con i suoi argomenti. Nessun codice è richiesto. *Controls* crea un pannello aggiuntivo accanto alle tue storie, in questo modo tu puoi modificare i loro argomenti in tempo reale.
 
-Le nuove installazioni di Storybook includono *Controls* direttamente. Nessuna configurazione aggiuntiva è richiesta.
+Le nuove installazioni di Storybook includono direttamente *Controls*. Nessuna configurazione aggiuntiva è richiesta.
 
 <video autoPlay muted playsInline loop>
   <source
@@ -30,7 +30,7 @@ Storybook è uno splendido [component-driven development environment](https://ww
 
 ### Utilizzo di Controls per trovare casi limite
 
-Con *Controls* i QA Engineers, gli UI Engineers, o altri stakeholder possono spingere il componente al limite! Andiamo a considerare il seguente esempio, cosa succederebbe al nostro componente `Task` se aggiungessimo una stringa **MASSICCIA**?
+Con *Controls* i QA Engineers, gli UI Engineers, o altri stakeholder possono spingere il componente al limite! Andiamo a considerare il seguente esempio, cosa succederebbe al nostro componente `Task` se aggiungessimo una stringa **LUNGHISSIMA**?
 
 ![Oh no! Il contenuto a destra è tagliato!](/intro-to-storybook/task-edge-case.png)
 
