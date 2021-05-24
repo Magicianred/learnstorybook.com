@@ -6,13 +6,15 @@ description: 'Impara a testare i componenti UI'
 
 Un tutorial Storybook non sarebbe completo senza una sezione relativa ai test. Testare i componenti è essenziale per creare UI di alta qualità. Nei sistemi modulari i piccoli ritocchi possono portare a importanti regressioni. Fin qui abbiamo incontrato tre tipi di test:
 
-- **Test manuali** affidarsi agli sviluppatori per verificare manualmente la correttezza dei componenti. They help us sanity check a component’s appearance as we build.
-- **Snapshot test** with Storyshots capture a component’s rendered markup. They help us stay abreast of markup changes that cause rendering errors and warnings.
-- **Unit test** with Jest verify that the output of a component remains the same given a fixed input. They’re great for testing the functional qualities of a component.
+- **Test manuali** affidarsi agli sviluppatori per verificare manualmente la correttezza dei componenti. Questi test ci aiutano a verificare la corretta visualizzazione dei componenti man mano che li costruiamo.
+- **Snapshot test** catturare con Storyshots il markup renderizzato di un componente. Questi test ci aiutano a restare al passo con i cambiamenti del markup che causano il rendering di avvertimenti ed errori.
+- **Unit test** con Jest verificare che l'output di un componente rimanga uguale dato un input fisso. Sono ottimi per testare le qualità funzionali di un componente.
 
-## “But does it look right?”
+## “Ma è corretto?”
 
-Unfortunately, the aforementioned testing methods alone aren’t enough to prevent UI bugs. UIs are tricky to test because design is subjective and nuanced. Manual tests are, well, manual. Snapshot tests trigger too many false positives when used for UI. Pixel-level unit tests are poor value. A complete Storybook testing strategy also includes visual regression tests.
+Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a prevenire bugs nell'interfaccia utente. Le interfacce utente sono complesse da testare poichè il design è soggettivo ed ha diverse sfumature. I test manuali sono, beh, manuali. Gli Snapshot test generano troppi falsi posititivi quando vengono utlizzati per le interfacce utente. Gli unit tests a livello di pixel non hanno molto valore. Una completa strategia di test tramite Storybook include inoltre test di regressioni visivi.
+
+---
 
 ## Visual testing for Storybook
 
