@@ -18,7 +18,7 @@ Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a pr
 
 ## Visual testing for Storybook
 
-Visual regression tests, also called visual tests, are designed to catch changes in appearance. They work by capturing screenshots of every story and comparing them commit-to-commit to surface changes. This is perfect for verifying graphical elements like layout, color, size, and contrast.
+I test di regressione visivi, chiamati anche test visivi, sono pensati per catturare cambiamenti nell'aspetto delle storie. Lavorano catturando degli screenshots di ciascuna storia e li comparano di commit in commit con i cambiamenti più recenti. Questa metodologia è perfetta per verificare elementi grafici come layout, colori, dimensioni e contrasti.
 
 <video autoPlay muted playsInline loop style="width:480px; margin: 0 auto;">
   <source
@@ -27,23 +27,23 @@ Visual regression tests, also called visual tests, are designed to catch changes
   />
 </video>
 
-Storybook is a fantastic tool for visual regression testing because every story is essentially a test specification. Each time we write or update a story we get a spec for free!
+Storybook è uno strumento fantastico per i test di regressione visivi poichè ogni storia è essenzialmente una specifica di un test. Ogni volta che scriviamo o aggiorniamo una storia, abbiamo una specifica gratis!
 
-There are a number of tools for visual regression testing. We recommend [**Chromatic**](https://www.chromatic.com/), a free publishing service made by the Storybook maintainers that runs visual tests in parallelized cloud. It also allows us to publish Storybook online as we saw in the [previous chapter](/intro-to-storybook/react/en/deploy/).
+Ci sono molti strumenti per i test di regressionce visivi. Noi raccomandiamo [**Chromatic**](https://www.chromatic.com/), un servizio di pubblicazione gratuito creato dai maintainers di Storybook che esegue i test visivi nel cloud in parallelo. Ci consente, inoltre, di pubblicare Storybook online come abbiamo visto nel [precedente capitolo](/intro-to-storybook/react/en/deploy/).
 
-## Catch a UI change
+## Catturare una modifica della UI
 
-Visual regression testing relies on comparing images of the new rendered UI code to the baseline images. If a UI change is caught we'll get notified.
+I test di regressione visivi si affidano alla comparazione delle immagini del nuovo codice renderizzato con le immagini di base. Se un cambiamento nella UI viene catturato ne saremo notificati.
 
-Let's see how it works by tweaking the background of the `Task` component.
+Vediamo come funziona modificando lo sfondo del componente `Task`.
 
-Start by creating a new branch for this change:
+Iniziamo creando un nuovo branch per questa modifica:
 
 ```bash
 git checkout -b change-task-background
 ```
 
-Change `src/components/Task.js` to the following:
+Modifichiamo `src/components/Task.js` come segue:
 
 ```diff:title=src/components/Task.js
 <div className="title">
@@ -57,49 +57,49 @@ Change `src/components/Task.js` to the following:
 </div>
 ```
 
-This yields a new background color for the item.
+Questo produce un nuovo colore di sfondo per l'elemento.
 
 ![task background change](/intro-to-storybook/chromatic-task-change.png)
 
-Add the file:
+Aggiungiamo il file:
 
 ```bash
 git add .
 ```
 
-Commit it:
+Effettuiamo il commit:
 
 ```bash
 git commit -m "change task background to red"
 ```
 
-And push the changes to the remote repo:
+ed effettuaimo il push delle modifiche al repository remoto:
 
 ```bash
 git push -u origin change-task-background
 ```
 
-Finally, open your GitHub repository and open a pull request for the `change-task-background` branch.
+Infine, apriamo il repository GitHub ed apriamo una pull request per il branch `change-task-background`.
 
 ![Creating a PR in GitHub for task](/github/pull-request-background.png)
 
-Add a descriptive text to your pull request and click `Create pull request`. Click on the "🟡 UI Tests" PR check at the bottom of the page.
+Aggiungiamo un testo descrittivo alla nostra pull request e clicchiamo `Create pull request`. Clicchiamo il check della pull request "🟡 UI Tests" in fondo alla pagina.
 
 ![Created a PR in GitHub for task](/github/pull-request-background-ok.png)
 
-This will show you the UI changes caught by your commit.
+Questo ci mostrerà i cambiamenti della UI changes catturati dal nostro commit.
 
 ![Chromatic caught changes](/intro-to-storybook/chromatic-catch-changes.png)
 
-There are a lot of changes! The component hierarchy where `Task` is a child of `TaskList` and `Inbox` means one small tweak snowballs into major regressions. This circumstance is precisely why developers need visual regression testing in addition to other testing methods.
+Ci sono moltissimi cambiamenti! La gerarchia dei componenti dove `Task` è un figlio di `TaskList` e `Inbox` significa che un piccolo cambiamento si riflette in grosse regressioni. Questa circostanza è l'esatto motivo per cui gli sviluppatori necessitano dei test di regressione visivi in aggiunta alle altre metodologie di test.
 
 ![UI minor tweaks major regressions](/intro-to-storybook/minor-major-regressions.gif)
 
-## Review changes
+## Revisione dei cambiamenti
 
-Visual regression testing ensures components don’t change by accident. But it’s still up to us to determine whether changes are intentional or not.
+I test di regressione visivi assicurano che i componenti non vengano modificati accidentalmente. Ma è comunque una nostra decisione quella di determinare quali cambiamenti sono intenzionali o meno.
 
-If a change is intentional we'll need to update the baseline so that future tests are compared to the latest version of the story. If a change is unintentional it needs to be fixed.
+Se una modifica è intenzionale avremo bisogno di aggiornare le immagini di base in modo che i test futuri saranno confrontati con l'ultima versione della storia. Se un cambiamento non è intenzionale dovrà essere sistemato.
 
 <video autoPlay muted playsInline loop style="width:480px; margin: 0 auto;">
   <source
@@ -108,14 +108,14 @@ If a change is intentional we'll need to update the baseline so that future test
   />
 </video>
 
-Since modern apps are constructed from components, it’s important that we test at the level of component. Doing so helps us pinpoint the root cause of a change, the component, instead of reacting to symptoms of a change, the screens and composite components.
+Dal momento che le applicazioni moderne sono costruite tramite componenti, è importante che il test venga eseguito a livello di componente. Facendo questo aiutiamo a focalizzare la causa principale del cambiamento, il componente, invece che agire sui sintomi di un cambiamento, ovvero le schermate ed i componenti compositi.
 
-## Merge changes
+## Unire le modifiche
 
-When we’ve finished reviewing we’re ready to merge UI changes with confidence --knowing that updates won’t accidentally introduce bugs. If you like the new `red` background then accept the changes, if not revert to the previous state.
+Quando abbiamo terminato la nostra revisione siamo pronti per unire le modifiche della UI in sicurezza --sapendo che gli aggiornamenti non introdurranno bugs accidentalmente. Se vi piace il nuovo sfondo `red` accettate le modifiche altrimenti ripristinate lo stato precedente.
 
 ![Changes ready to be merged](/intro-to-storybook/chromatic-review-finished.png)
 
-Storybook helps us **build** components; testing helps us **maintain** them. The four types of UI testing covered in this tutorial were visual, snapshot, unit, and visual regression testing. The last three can be automated by adding them to a CI as we've just finished setting up. This helps us ship components without worrying about stowaway bugs. The whole workflow is illustrated below.
+Storybook ci aiuta a **costruire** componenti; i test ci aiutano a **manutenerli**. I quattro tipi di test della UI trattati in questo tutorial sono manuali, snapshot, unit, ed i test di regressione visivi. Gli utlimi tre possono essere automatizzati aggiungendoli alla CI come abbiamo appena finito di configurare. Questo ci aiuta a consegnare componenti senza preoccuparci di bugs nascosti bugs. L'intero workflow è illustrato di seguito.
 
 ![Visual regression testing workflow](/intro-to-storybook/cdd-review-workflow.png)
