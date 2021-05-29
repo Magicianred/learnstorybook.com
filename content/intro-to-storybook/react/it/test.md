@@ -12,7 +12,7 @@ Un tutorial Storybook non sarebbe completo senza una sezione relativa ai test. T
 
 ## “Ma è corretto?”
 
-Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a prevenire bugs nell'interfaccia utente. Le interfacce utente sono complesse da testare poichè il design è soggettivo ed ha diverse sfumature. I test manuali sono, beh, manuali. Gli Snapshot test generano troppi falsi posititivi quando vengono utlizzati per le interfacce utente. Gli unit tests a livello di pixel non hanno molto valore. Una completa strategia di test tramite Storybook include inoltre test di regressioni visivi.
+Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a prevenire bugs nell'interfaccia utente. Le interfacce utente sono complesse da testare poichè il design è soggettivo ed ha diverse sfumature. I test manuali sono, beh, manuali. Gli Snapshot test generano troppi falsi positivi quando vengono utilizzati per le interfacce utente. Gli unit tests a livello di pixel non hanno molto valore. Una completa strategia di test tramite Storybook include inoltre test di regressioni visivi.
 
 ---
 
