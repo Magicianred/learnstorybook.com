@@ -7,12 +7,12 @@ description: 'Impara a testare i componenti UI'
 Un tutorial Storybook non sarebbe completo senza una sezione relativa ai test. Testare i componenti è essenziale per creare UI di alta qualità. Nei sistemi modulari i piccoli ritocchi possono portare a importanti regressioni. Fin qui abbiamo incontrato tre tipi di test:
 
 - **Test manuali** affidarsi agli sviluppatori per verificare manualmente la correttezza dei componenti. Questi test ci aiutano a verificare la corretta visualizzazione dei componenti man mano che li costruiamo.
-- **Snapshot test** catturare con Storyshots il markup renderizzato di un componente. Questi test ci aiutano a restare al passo con i cambiamenti del markup che causano il rendering di avvertimenti ed errori.
+- **Snapshot test** catturare con *Storyshots* il markup renderizzato di un componente. Questi test ci aiutano a restare al passo con i cambiamenti del markup che causano il rendering di avvertimenti ed errori.
 - **Unit test** con Jest verificare che l'output di un componente rimanga uguale dato un input fisso. Sono ottimi per testare le qualità funzionali di un componente.
 
 ## “Ma è corretto?”
 
-Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a prevenire bugs nell'interfaccia utente. Le interfacce utente sono complesse da testare poichè il design è soggettivo ed ha diverse sfumature. I test manuali sono, beh, manuali. Gli Snapshot test generano troppi falsi positivi quando vengono utilizzati per le interfacce utente. Gli unit tests a livello di pixel non hanno molto valore. Una completa strategia di test tramite Storybook include inoltre test di regressioni visivi.
+Sfortunatamente, i soli metodi di testing sopra citati non sono sufficienti a prevenire bug nell'interfaccia utente. Le interfacce utente sono complesse da testare poiché il design è soggettivo e ha diverse sfumature. I test manuali sono, beh, manuali. Gli *Snapshot test* generano troppi falsi positivi quando vengono utilizzati per le interfacce utente. I test unitari a livello di pixel non hanno molto valore. Una completa strategia di test tramite Storybook include inoltre test di regressione visivi.
 
 ---
 
@@ -27,9 +27,9 @@ I test di regressione visivi, chiamati anche test visivi, sono pensati per cattu
   />
 </video>
 
-Storybook è uno strumento fantastico per i test di regressione visivi poichè ogni storia è essenzialmente una specifica di un test. Ogni volta che scriviamo o aggiorniamo una storia, abbiamo una specifica gratis!
+Storybook è uno strumento fantastico per i test di regressione visivi poiché ogni storia è essenzialmente una specifica di un test. Ogni volta che scriviamo o aggiorniamo una storia, abbiamo una specifica gratis!
 
-Ci sono molti strumenti per i test di regressionce visivi. Noi raccomandiamo [**Chromatic**](https://www.chromatic.com/), un servizio di pubblicazione gratuito creato dai maintainers di Storybook che esegue i test visivi nel cloud in parallelo. Ci consente, inoltre, di pubblicare Storybook online come abbiamo visto nel [precedente capitolo](/intro-to-storybook/react/en/deploy/).
+Ci sono molti strumenti per i test di regressione visivi. Noi raccomandiamo [**Chromatic**](https://www.chromatic.com/), un servizio di pubblicazione gratuito creato dai maintainers di Storybook che esegue in parallelo i test visivi nel cloud. Ci consente, inoltre, di pubblicare Storybook online come abbiamo visto nel [precedente capitolo](/intro-to-storybook/react/it/deploy/).
 
 ## Catturare una modifica della UI
 
@@ -91,7 +91,7 @@ Questo ci mostrerà i cambiamenti della UI changes catturati dal nostro commit.
 
 ![Chromatic caught changes](/intro-to-storybook/chromatic-catch-changes.png)
 
-Ci sono moltissimi cambiamenti! La gerarchia dei componenti dove `Task` è un figlio di `TaskList` e `Inbox` significa che un piccolo cambiamento si riflette in grosse regressioni. Questa circostanza è l'esatto motivo per cui gli sviluppatori necessitano dei test di regressione visivi in aggiunta alle altre metodologie di test.
+Ci sono moltissimi cambiamenti! La gerarchia dei componenti dove `Task` è un figlio di `TaskList` e `Inbox` significa che un piccolo cambiamento si riflette in grosse regressioni. Questa circostanza è il motivo esatto per cui gli sviluppatori necessitano dei test di regressione visivi in aggiunta alle altre metodologie di test.
 
 ![UI minor tweaks major regressions](/intro-to-storybook/minor-major-regressions.gif)
 
@@ -112,10 +112,10 @@ Dal momento che le applicazioni moderne sono costruite tramite componenti, è im
 
 ## Unire le modifiche
 
-Quando abbiamo terminato la nostra revisione siamo pronti per unire le modifiche della UI in sicurezza --sapendo che gli aggiornamenti non introdurranno bugs accidentalmente. Se vi piace il nuovo sfondo `red` accettate le modifiche altrimenti ripristinate lo stato precedente.
+Quando abbiamo terminato la nostra revisione siamo pronti per unire le modifiche della UI in sicurezza --sapendo che gli aggiornamenti non introdurranno bug accidentalmente. Se vi piace il nuovo sfondo `red` accettate le modifiche altrimenti ripristinate lo stato precedente.
 
 ![Changes ready to be merged](/intro-to-storybook/chromatic-review-finished.png)
 
-Storybook ci aiuta a **costruire** componenti; i test ci aiutano a **manutenerli**. I quattro tipi di test della UI trattati in questo tutorial sono manuali, snapshot, unit, ed i test di regressione visivi. Gli utlimi tre possono essere automatizzati aggiungendoli alla CI come abbiamo appena finito di configurare. Questo ci aiuta a consegnare componenti senza preoccuparci di bugs nascosti bugs. L'intero workflow è illustrato di seguito.
+Storybook ci aiuta a **costruire** componenti; i test ci aiutano a **mantenerli**. I quattro tipi di test della UI trattati in questo tutorial sono manuali, snapshot, unitari, ed i test di regressione visivi. Gli ultimi tre possono essere automatizzati aggiungendoli alla CI non appena abbiamo finito di configurarli. Questo ci aiuta a consegnare componenti senza preoccuparci di bug nascosti. L'intero workflow è illustrato di seguito.
 
 ![Visual regression testing workflow](/intro-to-storybook/cdd-review-workflow.png)
